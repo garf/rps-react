@@ -1,0 +1,19 @@
+@import "../styles/variables";
+
+$bg-color: #A7DBD8;
+
+.game-field {
+  padding: 15px;
+  flex: 1;
+  background-color: $bg-color;
+
+  &__result {
+    border: 1px solid $primary-color;
+  }
+}
+
+.choices {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}

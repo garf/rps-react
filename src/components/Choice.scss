@@ -1,0 +1,21 @@
+@import "../styles/variables";
+
+$border-color: #294055;
+$bg-color: #86d8ff;
+
+.choice {
+  width: 100px;
+  height: 100px;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $primary-color;
+
+  &:hover {
+    background-color: $secondary-color;
+    cursor: pointer;
+    user-select: none;
+  }
+}
