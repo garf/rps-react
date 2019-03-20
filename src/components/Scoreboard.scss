@@ -4,4 +4,16 @@ $bg-color: #E0E4CC;
   flex: 2;
   padding: 15px;
   background-color: $bg-color;
+
+  &__actions {
+    padding-top: 20px;
+  }
+
+  &__scores {
+    padding-top: 20px;
+  }
+
+  &__title {
+    font-size: 1.4rem;
+  }
 }

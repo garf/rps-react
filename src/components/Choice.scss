@@ -1,6 +1,6 @@
 @import "../styles/variables";
 
-$border-color: #294055;
+$border-color: #7f9ea0;
 $bg-color: #86d8ff;
 
 .choice {
@@ -12,10 +12,15 @@ $bg-color: #86d8ff;
   justify-content: center;
   align-items: center;
   background-color: $primary-color;
+  box-shadow: 3px 3px 3px darken(#A7DBD8, 10%);
 
   &:hover {
     background-color: $secondary-color;
     cursor: pointer;
     user-select: none;
+  }
+
+  &:focus {
+    border-color: darken($border-color, 30%);
   }
 }

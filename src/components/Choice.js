@@ -6,7 +6,7 @@ import './Choice.scss';
 class Choice extends Component {
   render() {
     return (
-      <div className="choice" onClick={this.props.onPress}>{this.props.name}</div>
+      <div className="choice" tabIndex="0" onClick={this.props.onPress}>{this.props.name}</div>
     );
   }
 }

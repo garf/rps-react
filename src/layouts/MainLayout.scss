@@ -1,11 +1,18 @@
 @import "../styles/variables";
 
+$screen-sm-min: 576px;
+
+@mixin lg {
+  @media (min-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+
 .container {
   max-width: 800px;
   margin: 0 auto;
   display: flex;
-  flex-direction: row;
-  border: 1px solid #000;
+  flex-direction: column;
 
   &__content {
     flex-grow: 3;
@@ -15,5 +22,15 @@
   &__sidebar {
     flex-grow: 1;
     display: flex;
+  }
+}
+
+@include lg {
+  .container {
+    flex-direction: row;
+
+    &__content, &__sidebar {
+      flex-grow: 1;
+    }
   }
 }

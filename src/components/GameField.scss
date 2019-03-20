@@ -8,12 +8,18 @@ $bg-color: #A7DBD8;
   background-color: $bg-color;
 
   &__result {
-    border: 1px solid $primary-color;
+    padding: 20px;
   }
-}
 
-.choices {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  &__title {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  &__choices {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-top: 20px;
+  }
 }

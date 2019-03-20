@@ -1,23 +1,52 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import PlayerScore from './PlayerScore';
-import './Scoreboard.scss';
+import PropTypes from 'prop-types';
+import {Transition} from 'react-transition-group';
+import './Result.scss';
+
+const duration = 300;
+
+const defaultStyle = {
+  transition: `opacity ${duration}ms ease-in-out`,
+  opacity: 1,
+}
+
+const transitionStyles = {
+  exiting:  { opacity: 1 },
+  exited:  { opacity: 0 },
+};
 
 class Result extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {display: false};
+  }
+
+  componentWillReceiveProps() {
+    this.setState({display: true});
+
+    setTimeout(() => {
+      this.setState({display: false});
+    }, 2000)
+  }
+
   render() {
     return (
-      <div className="scoreboard">
-        <h3 className="title">Scoreboard</h3>
-        {this.props.players.map(player => (
-          <PlayerScore name={player.name} score={player.score} key={player.name}/>
-        ))}
+      <div className="result">
+        <Transition in={this.state.display} timeout={duration}>
+          {state => (
+            <div style={{...defaultStyle, ...transitionStyles[state]}}>
+              {this.props.isDraw ? 'DRAW' : `${this.props.name} WIN!`}
+            </div>
+          )}
+        </Transition>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  players: state.scores.players
-});
+Result.propTypes = {
+  name: PropTypes.string,
+  isDraw: PropTypes.bool
+};
 
-export default connect(mapStateToProps)(Scoreboard);
+export default Result;
