@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlayerScore component should render correct score for player 1`] = `
+<div>
+  Chuck Norris
+  : 
+  3
+</div>
+`;

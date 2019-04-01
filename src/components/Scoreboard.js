@@ -15,7 +15,7 @@ class Scoreboard extends Component {
           ))}
         </div>
         <div className="scoreboard__actions">
-          <button onClick={this.props.resetScores}>Let's start again!</button>
+          <button className="button" onClick={this.props.resetScores}>Let's start again!</button>
         </div>
       </div>
     );

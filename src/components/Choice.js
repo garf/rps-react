@@ -2,17 +2,22 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import PlayerScore from './PlayerScore';
 import './Choice.scss';
+import ChoiceIcon from '@c/ChoiceIcon'
 
 class Choice extends Component {
   render() {
+    const {choice} = this.props;
+
     return (
-      <div className="choice" tabIndex="0" onClick={this.props.onPress}>{this.props.name}</div>
+      <div className="choice" tabIndex="0" onClick={this.props.onPress}>
+        <ChoiceIcon size={3} choice={choice}/>
+      </div>
     );
   }
 }
 
 PlayerScore.propTypes = {
-  name: PropTypes.string,
+  choice: PropTypes.string,
   onPress: PropTypes.func
 };
 

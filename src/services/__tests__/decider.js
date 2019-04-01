@@ -1,5 +1,5 @@
-import decider from './decider';
-import {CHOICE} from '../constants';
+import decider from '@/services/decider';
+import {CHOICE} from '../../constants';
 
 describe('RPS Decider', () => {
 

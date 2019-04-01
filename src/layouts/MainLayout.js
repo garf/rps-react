@@ -9,8 +9,10 @@ class MainLayout extends Component {
   render() {
     return (
       <div className="container">
-        <div className="container__content">{this.props.content}</div>
-        <div className="container__sidebar">{this.props.sidebar}</div>
+        <div className="box columns">
+          <div className="container__content column">{this.props.content}</div>
+          <div className="container__sidebar column is-one-quarter">{this.props.sidebar}</div>
+        </div>
       </div>
     );
   }

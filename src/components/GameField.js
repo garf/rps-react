@@ -11,7 +11,7 @@ import './GameField.scss';
 class GameField extends Component {
   constructor(props) {
     super(props);
-    this.state = {winner: null};
+    this.resultBlock = React.createRef();
   }
 
   getRandomChoice = () => {
@@ -20,18 +20,22 @@ class GameField extends Component {
 
   makeChoice = playerOneChoice => {
     const playerTwoChoice = this.getRandomChoice();
+    const choices = [playerOneChoice, playerTwoChoice];
 
-    const results = decider.decide([playerOneChoice, playerTwoChoice]);
-    const winnerIndex = _.findIndex(results, score => score === 1);
+    const result = decider.decide(choices);
 
-    this.props.addScores(results);
-    this.setState({winner: winnerIndex});
+    this.props.addScores(result);
+    this.resultBlock.current.showResult(_prepareResult(this.props.players, result, choices));
   }
 
   render() {
     const {players} = this.props;
-    const {winner} = this.state;
 
+    const choicesMap = [
+      CHOICE.ROCK,
+      CHOICE.PAPER,
+      CHOICE.SCISSORS,
+    ];
 
     return (
       <div className="game-field">
@@ -39,21 +43,25 @@ class GameField extends Component {
         <div className="game-field__title">ROCK! Paper, scissors!</div>
 
         <div className="game-field__choices">
-          <Choice onPress={() => {this.makeChoice(CHOICE.ROCK)}} name="ROCK!"/>
-          <Choice onPress={() => {this.makeChoice(CHOICE.PAPER)}} name="Paper"/>
-          <Choice onPress={() => {this.makeChoice(CHOICE.SCISSORS)}} name="Scissors"/>
+          {choicesMap.map(choice => <Choice key={choice} onPress={() => {this.makeChoice(choice)}} choice={choice}/>)}
         </div>
 
         <div className="game-field__result">
-          {<Result name={!_.includes([null, -1], winner) ? players[winner].name : ''} isDraw={winner === -1} />}
+          <Result ref={this.resultBlock} />
         </div>
       </div>
     );
   }
 }
 
+const _prepareResult = (players, result, choices) => players.map((player, index) => ({
+  name: player.name,
+  choice: choices[index],
+  result: result[index],
+}));
+
 const mapDispatchToProps = dispatch => ({
-  addScores: results => dispatch(addScores(results)),
+  addScores: result => dispatch(addScores(result)),
 });
 
 const mapStateToProps = state => ({

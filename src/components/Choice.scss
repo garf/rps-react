@@ -1,26 +1,20 @@
 @import "../styles/variables";
 
-$border-color: #7f9ea0;
-$bg-color: #86d8ff;
-
 .choice {
   width: 100px;
   height: 100px;
-  border: 1px solid $border-color;
-  border-radius: 4px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: $primary-color;
-  box-shadow: 3px 3px 3px darken(#A7DBD8, 10%);
+  background-color: $primary;
 
   &:hover {
-    background-color: $secondary-color;
     cursor: pointer;
     user-select: none;
+    background-color: $info;
   }
 
   &:focus {
-    border-color: darken($border-color, 30%);
+    box-shadow: 0 0 5px 5px $info;
   }
 }

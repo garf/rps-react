@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Result component WinningPlayers sub-component should render correct draw message 1`] = `"DRAW"`;
+
+exports[`Result component WinningPlayers sub-component should render correct win message for player 1 1`] = `
+Array [
+  <div
+    key="User 1"
+  >
+    User 1
+     Wins
+  </div>,
+  "",
+]
+`;
+
+exports[`Result component WinningPlayers sub-component should render correct win message for player 2 1`] = `
+Array [
+  "",
+  <div
+    key="User 2"
+  >
+    User 2
+     Wins
+  </div>,
+]
+`;
+
+exports[`Result component should render correct  1`] = `
+<div
+  className="result"
+>
+  <h3
+    className="has-text-centered is-size-3"
+  >
+    Results
+  </h3>
+  <Transition
+    appear={false}
+    enter={true}
+    exit={true}
+    in={false}
+    mountOnEnter={false}
+    onEnter={[Function]}
+    onEntered={[Function]}
+    onEntering={[Function]}
+    onExit={[Function]}
+    onExited={[Function]}
+    onExiting={[Function]}
+    timeout={300}
+    unmountOnExit={false}
+  >
+    <Component />
+  </Transition>
+</div>
+`;
